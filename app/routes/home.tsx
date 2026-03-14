@@ -1,13 +1,35 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import styles from "../styles/Home.module.css"
+import { Canvas } from "@react-three/fiber"
+import HomeScene from "../scenes/HomeScene"
+
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Home" },
+    { name: "description", content: "Home page" },
   ];
 }
 
-export default function Home() {
-  return <Welcome />;
+export default function home() {
+  return (
+    <>
+    <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
+      <Canvas
+          style={{ width: "100%", height: "100%" }}
+          camera={{ position: [0, 1.8, 4], fov: 45 }}
+          dpr={[1, 2]}
+          >
+        <HomeScene />
+      </Canvas>
+      
+      <div className={styles.landingTextContainer}>
+        <h1 className={styles.landingText}>however you got here...</h1>
+        <h1 className={styles.landingText}>I'm so glad you made it</h1>
+        <h1 className={styles.landingText}>take a look around, stay a while</h1>
+      </div>
+    </div>
+
+    </>
+  )
 }
