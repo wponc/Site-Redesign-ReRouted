@@ -1,4 +1,4 @@
-import type { Route } from "./+types/home";
+import type { Route } from "./+types/Home";
 import styles from "../styles/Home.module.css"
 import { Canvas } from "@react-three/fiber"
 import HomeScene from "../scenes/HomeScene"

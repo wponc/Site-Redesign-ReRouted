@@ -1,4 +1,7 @@
-import type { Route } from "./+types/work";
+import type { Route } from "./+types/Work";
+import WorkScene from "../scenes/WorkScene"
+import { Canvas } from "@react-three/fiber"
+import { Preload } from "@react-three/drei"
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,13 +11,29 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Work() {
-  return (
-    <div>
-      <h1>Work Page</h1>
-      <p>This is the work page.</p>
-      {Array.from({ length: 50 }, (_, i) => (
-        <p key={i}>Work paragraph {i + 1}: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      ))}
-    </div>
-  );
+ return (
+    <>
+      <Canvas
+        style={{ width: "100vw", height: "100vh" }}
+        gl={{ antialias: true, alpha: true }}
+      >
+      <WorkScene />
+      <Preload all />
+    </Canvas>
+
+    <section id="work">
+      <h1>Work</h1>
+      <p>Actual work experience.</p>
+    </section>
+    <section id="projects">
+      <h1>Projects</h1>
+      <p>Projects go here.</p>
+    </section>
+    <section id="creative">
+      <h1>Creative</h1>
+      <p>Sites & renders.</p>
+    </section>
+    
+    </>
+ )
 }

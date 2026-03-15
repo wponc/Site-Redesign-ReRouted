@@ -48,8 +48,8 @@ export default function App() {
       <nav className="navbar">
         <Link to="/">Home</Link>
         <Link to="/Work">Work</Link>
-        <Link to="/Personal">Personal</Link>
         <Link to="/Writing">Writing</Link>
+        <Link to="/Personal">Personal</Link>
       </nav>
       <Outlet />
     </>
